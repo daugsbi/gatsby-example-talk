@@ -14,6 +14,10 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-codegen',
+      options: {}
+    },
+    {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'content',

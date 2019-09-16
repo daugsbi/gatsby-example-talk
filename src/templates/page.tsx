@@ -1,10 +1,18 @@
 import * as React from 'react'
 import { graphql } from 'gatsby'
+import { PageTemplateQuery } from './__generated__/PageTemplateQuery'
 
 import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
 
+export type PageData<T> = {
+  data: T
+}
+
+type PageTemplateProps = PageData<PageTemplateQuery>
+
+/*
 interface PageTemplateProps {
   data: {
     site: {
@@ -26,14 +34,15 @@ interface PageTemplateProps {
     }
   }
 }
+*/
 
 const PageTemplate: React.SFC<PageTemplateProps> = ({ data }) => (
   <IndexLayout>
     <Page>
       <Container>
-        <h1>{data.markdownRemark.frontmatter.title}</h1>
+        <h1>{data.markdownRemark!.frontmatter!.title}</h1>
         {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark!.html! }} />
       </Container>
     </Page>
   </IndexLayout>

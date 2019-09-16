@@ -113,3 +113,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Generated types by gatsby-plugin-codegen
+__generated__
+apollo.config.js
+schema.json
