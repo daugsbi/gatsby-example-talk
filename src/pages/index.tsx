@@ -12,7 +12,12 @@ const IndexPage = () => (
         <h1>Hi people</h1>
         <p>Welcome to your new Gatsby site.</p>
         <p>Now go build something great.</p>
-        <Link to="/page-2/">Go to page 2</Link>
+        <Link to="/a-markdown-page/">Show me some Markdown!</Link>
+        <br />
+        <Link to="/wiki">Wiki</Link>
+        <br />
+        <Link to="/swapi">Star Wars</Link>
+        <br />
       </Container>
     </Page>
   </IndexLayout>

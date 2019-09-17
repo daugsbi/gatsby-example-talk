@@ -3,19 +3,51 @@
 module.exports = {
   siteMetadata: {
     title: 'gatsby-starter-typescript-plus',
-    description: 'A starter kit for TypeScript-based Gatsby projects with sensible defaults.',
-    keywords: 'gatsbyjs, gatsby, javascript, sample, something',
+    description: 'Based on gatsby-starter-typescript-plus.',
+    keywords: 'gatsbyjs, gatsby, autocomplete, apollo, codegen',
     siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',
     author: {
-      name: 'Resi Respati',
-      url: 'https://twitter.com/resir014',
-      email: 'resir014@gmail.com'
+      name: 'Denis Augsburger',
+      url: 'https://twitter.com/denisaugsburger',
+      email: 'denis.augsburger@twteam.ch'
     }
   },
   plugins: [
     {
       resolve: 'gatsby-plugin-codegen',
       options: {}
+    },
+    {
+      resolve: 'gatsby-source-wikipedia',
+      options: {
+        // For each query, the plugin will go to Wikipedia's API and search for the query
+        // and fetch the top articles to the specified limit.
+        queries: [
+          {
+            query: `graphql`,
+            limit: 5
+          },
+          {
+            query: `typescript`,
+            limit: 10
+          },
+          {
+            query: `apollo`,
+            limit: 10
+          }
+        ]
+      }
+    },
+    {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        // This type will contain the remote schema Query type
+        typeName: 'SWAPI',
+        // This is the field under which it's accessible
+        fieldName: 'swapi',
+        // URL to query from
+        url: 'https://api.graphcms.com/simple/v1/swapi'
+      }
     },
     {
       resolve: 'gatsby-source-filesystem',
